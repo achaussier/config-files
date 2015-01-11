@@ -171,6 +171,9 @@ bar {
 # Configure workspace to use tab instead of stack
 workspace_layout tabbed
 
+# Locking screen
+bindsym Mod1+Shift+l exec i3lock
+
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used his favorite modifier (alt or windows)
