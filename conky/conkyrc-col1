@@ -1,0 +1,58 @@
+gap_x 25
+gap_y 25
+
+# Custum colors
+###############
+color1 B40404 # red
+
+
+TEXT
+$alignc${color1}system$color
+
+${color gray}Hostname :$color $nodename
+${color gray}Domain   :$color ${exec hostname -d}
+${color gray}System   :$color $sysname
+${color gray}Kernel   :$color $kernel
+${color gray}Machine  :$color $machine
+${color grey}Uptime   :$color $uptime
+
+
+$alignc${color1}cpu$color
+
+${color grey}Name     :$color ${exec sed -n -e '/model name/ {s/model name\s*:\s*//p;q}' /proc/cpuinfo}
+${color grey}Physical :$color ${exec grep 'physical id' /proc/cpuinfo | sort -u | wc -l}
+${color grey}Core     :$color ${exec grep 'core id' /proc/cpuinfo | sort -u | wc -l}
+${color grey}Thread   :$color ${exec grep 'processor' /proc/cpuinfo | sort -u | wc -l}
+${color grey}Frequency (in GHz):$color $freq_g
+
+Average
+${color grey}Load  : $color${loadavg}
+${loadgraph}
+${color grey}Usage : $color${cpu cpu0}%
+${cpugraph cpu0 42AE4A eeeeee}
+
+Details
+${goto 65}${color grey}cpu1 : ${color}${cpu cpu1}% ${goto 265}${color grey} cpu2 : ${color}${cpu cpu2}%
+${cpugraph cpu1 25,200 42AE4A eeeeee} $alignr${cpugraph cpu2 25,200 42AE4A eeeeee}
+${goto 65}${color grey}cpu3 : ${color}${cpu cpu3}% ${goto 265}${color grey} cpu4 : ${color}${cpu cpu4}%
+${cpugraph cpu3 25,200 42AE4A eeeeee} $alignr${cpugraph cpu4 25,200 42AE4A eeeeee}
+${goto 65}${color grey}cpu5 : ${color}${cpu cpu5}% ${goto 265}${color grey} cpu6 : ${color}${cpu cpu6}%
+${cpugraph cpu5 25,200 42AE4A eeeeee} $alignr${cpugraph cpu6 25,200 42AE4A eeeeee}
+${goto 65}${color grey}cpu7 : ${color}${cpu cpu7}% ${goto 265}${color grey} cpu8 : ${color}${cpu cpu8}%
+${cpugraph cpu7 25,200 42AE4A eeeeee} $alignr${cpugraph cpu8 25,200 42AE4A eeeeee}
+
+
+$alignc${color1}memory$color
+
+RAM
+${color grey}Total :${color} $memmax
+${color grey}Free  :${color} $memfree
+${color grey}Usage :${color} $mem ${alignc}$memperc%
+${memgraph}
+
+SWAP
+${color grey}Usage :${color} $swapmax
+${color grey}Total :${color} $swap ${alignc}$swapperc%
+${swapbar 4}
+
+${include ./conkyrc-common}

@@ -1,0 +1,67 @@
+gap_x 525
+gap_y 25
+
+color1 B40404 # red
+
+TEXT
+$alignc${color1}fs$color
+
+Mount points
+${voffset 5}${color grey}/
+   ${voffset 5}${color grey}Total : ${color}${fs_size /}
+   ${color grey}Used  : ${color}${fs_used /} ${goto 180}${fs_used_perc /}%
+   ${color grey}Free  : ${color}${fs_free /} ${goto 180}${fs_free_perc /}%
+   ${voffset 2}${fs_bar 6 /}
+
+${color grey}/home
+   ${voffset 5}${color grey}Total : ${color}${fs_size /home}
+   ${color grey}Used  : ${color}${fs_used /home} ${goto 180}${fs_used_perc /home}%
+   ${color grey}Free  : ${color}${fs_free /home} ${goto 180}${fs_free_perc /home}%
+   ${voffset 2}${fs_bar 6 /home}
+
+${color grey}/tmp
+   ${voffset 5}${color grey}Total : ${color}${fs_size /tmp}
+   ${color grey}Used  : ${color}${fs_used /tmp} ${goto 180}${fs_used_perc /tmp}%
+   ${color grey}Free  : ${color}${fs_free /tmp} ${goto 180}${fs_free_perc /tmp}%
+   ${voffset 2}${fs_bar 6 /tmp}
+
+${color grey}/var
+   ${voffset 5}${color grey}Total : ${color}${fs_size /var}
+   ${color grey}Used  : ${color}${fs_used /var} ${goto 180}${fs_used_perc /var}%
+   ${color grey}Free  : ${color}${fs_free /var} ${goto 180}${fs_free_perc /var}%
+   ${voffset 2}${fs_bar 6 /var}
+
+${color grey}/var/log
+   ${voffset 5}${color grey}Total : ${color}${fs_size /var/log}
+   ${color grey}Used  : ${color}${fs_used /var/log} ${goto 180}${fs_used_perc /var/log}%
+   ${color grey}Free  : ${color}${fs_free /var/log} ${goto 180}${fs_free_perc /var/log}%
+   ${voffset 2}${fs_bar 6 /var/log}
+
+${color grey}/dev/shm
+   ${voffset 5}${color grey}Total : ${color}${fs_size /dev/shm}
+   ${color grey}Used  : ${color}${fs_used /dev/shm} ${goto 180}${fs_used_perc /dev/shm}%
+   ${color grey}Free  : ${color}${fs_free /dev/shm} ${goto 180}${fs_free_perc /dev/shm}%
+   ${voffset 2}${fs_bar 6 /dev/shm}
+
+Disks
+${color grey}${voffset 5}/dev/sda
+   ${color}${goto 100}${diskio_read} ${goto 305}${diskio_write}
+   ${voffset 2}${color}${diskiograph_read 25,200} ${alignr}${diskiograph_write 25,200}
+   ${color}${goto 115}Read ${goto 315}Write
+
+
+$alignc${color1}networking$color
+
+Up:$color ${upspeed eth0} ${color grey} - Down:$color ${downspeed eth0}
+
+
+$alignc${color1}processes$color
+
+${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+
+${color grey}Name              PID   CPU%   MEM%
+${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color lightgrey} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color lightgrey} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+${include ./conkyrc-common}
