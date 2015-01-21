@@ -1,0 +1,24 @@
+{
+    "bold_folder_labels": true,
+    "default_line_ending": "unix",
+    "detect_indentation": false,
+    "draw_minimap_border": true,
+    "ensure_newline_at_eof_on_save": true,
+    "font_size": 9,
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "margin": 0,
+    "rulers":
+    [
+        80
+    ],
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": "false"
+}
+
