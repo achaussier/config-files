@@ -9,7 +9,7 @@ alias l="ls"
 alias s="ls"
 
 # mount readeable
-alias mount="mount |column -t
+alias mount="mount |column -t"
 
 # move aliases
 alias ..="cd .."
